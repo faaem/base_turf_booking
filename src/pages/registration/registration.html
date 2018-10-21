@@ -1,0 +1,128 @@
+
+<ion-header no-border>
+  <ion-row align-items-center style="padding-top: 2vh;">
+    <ion-col col-2 class="backarrow" (click)="goback()">
+      <img class="imgclshd" src="assets/imgs/ba.jpg" alt="">
+    </ion-col>
+    <ion-col col-10 class="loghead">
+      SIGN UP
+    </ion-col>
+  </ion-row>
+
+
+</ion-header>
+
+<ion-content padding >
+  <ion-grid>
+    <form [formGroup]="signupForm">
+
+      <ion-row justify-content-center>
+
+
+        <ion-label color="danger" class="margin-validation-text" *ngIf="errSignupMessage">
+          <span style="padding-left: 10vw;"> {{errMessage}}</span>
+        </ion-label>
+      </ion-row>
+
+  <ion-row name="user-name" align-items-center >
+    <ion-col col-10 >
+      <ion-item no-lines style="margin-bottom: 2vh; margin-top:4vh;" >
+        <ion-input  type="text" class="font-placeholder" style="padding-left: 5vw;font-size: 2.3vh; font-family: 'IBM Plex Mono', monospace;"
+        placeholder="NAME" formControlName="username" ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <!-- error box -->
+  <ion-row>
+    <ion-label class="msg-text" color="danger"
+      *ngIf="!signupForm.controls.username.valid && errMsgSignupFullname">
+      <span style="padding-left: 10vw;">Please enter a valid name</span>
+    </ion-label>
+  </ion-row>
+
+  <ion-row name="email-login" align-items-center>
+    <ion-col col-10>
+      <ion-item no-lines style="margin-bottom: 2vh; " >
+        <ion-input (ionFocus)="clearError()" type="number" class="font-placeholder" style="padding-left: 5vw;font-size: 2.3vh; font-family: 'IBM Plex Mono', monospace; letter-spacing: 3px;"
+        placeholder="MOBILE NUMBER*" formControlName="mobile" ></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-label color="danger" class="msg-text"
+      *ngIf="!signupForm.controls.mobile.valid  && errMsgSignupMob">
+      <span style="padding-left: 10vw;">Please enter a valid mobile number</span>
+    </ion-label>
+  </ion-row>
+
+    <ion-row name="email-login" align-items-center >
+      <ion-col col-10 >
+        <ion-item no-lines style="margin-bottom: 2vh;" >
+          <ion-input  type="password" class="font-placeholder" style="padding-left: 5vw;font-size: 2.3vh; font-family: 'IBM Plex Mono', monospace;"
+          placeholder="PASSWORD*" formControlName="password"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-label color="danger" class="pwd-error-msg"
+          *ngIf="!signupForm.controls.password.valid  && errMsgSignupPwd">
+            <span style="padding-left: 10vw;">Password should be minimum 6 characters</span>
+      </ion-label>
+    </ion-row>
+
+    <ion-row name="email-login" align-items-center>
+      <ion-col col-10>
+        <ion-item no-lines style="margin-bottom: 2vh;" >
+          <ion-input (ionFocus)="clearError()" type="password" class="font-placeholder" style="padding-left: 5vw;font-size: 2.3vh; font-family: 'IBM Plex Mono', monospace; letter-spacing: 3px;"
+          placeholder="CONFIRM PASSWORD*" formControlName="cpassword" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-label color="danger" class="pwd-error-msg"
+          *ngIf="passwordDonotMatch">
+            <span style="padding-left: 10vw;">Passwords are not matching</span>
+      </ion-label>
+    </ion-row>
+
+
+    <ion-col col-12>
+      <div class="btndv">
+        <button ion-button class="btndvsp" type="submit" (tap)="userSignup(signupForm)" >SIGN UP</button>
+      </div>
+    </ion-col>
+    <ion-row class="socialLogin" align-items-center>
+    <ion-col col-12>
+      <div class="lognu">
+        <input type="checkbox" name="" value="">
+        I accept terms & conditions
+   </div>
+
+    </ion-col>
+    <ion-col col-12>
+
+       <ion-col col-12>
+      <div class="btndvf">
+        <button ion-button class="btnlgnb" (click)="userLogin()">
+          <img class="imgcls" src="assets/imgs/fb.png" alt="">
+
+          Login with Facebook</button>
+      </div>
+    </ion-col>
+    </ion-col>
+    <ion-col col-12>
+      <div class="btndv">
+        <button ion-button class="btnlgn" (click)="userLogin()" >
+           <img class="imgcls" src="assets/imgs/gp.png" alt="">
+          Sign in With Google+</button>
+      </div>
+    </ion-col>
+    </ion-row>
+  </form>
+
+</ion-grid>
+  </ion-content>

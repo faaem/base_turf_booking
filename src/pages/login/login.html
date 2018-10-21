@@ -1,0 +1,72 @@
+
+<ion-header no-border>
+  <ion-row align-items-center style="padding-top: 2vh;">
+    <ion-col col-2 class="backarrow" (click)="goback()">
+      <img class="imgclshd" src="assets/imgs/ba.jpg" alt="">
+    </ion-col>
+    <ion-col col-10 class="loghead">
+      LOGIN
+    </ion-col>
+  </ion-row>
+
+
+</ion-header>
+
+<ion-content padding >
+
+
+    <ion-row name="email-login" align-items-center style="margin-bottom: 3vh; margin-top: 12vh;">
+      <ion-col col-10 >
+        <ion-item no-lines >
+          <ion-input  type="number" class="font-placeholder" style="padding-left: 5vw;font-size: 2.3vh; font-family: 'IBM Plex Mono', monospace;"
+          placeholder="MOBILE NUMBER*" [(ngModel)]="mobileNumber" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row name="email-login" align-items-center>
+      <ion-col col-10>
+        <ion-item no-lines>
+          <ion-input (ionFocus)="clearError()" type="password" class="font-placeholder" style="padding-left: 5vw;font-size: 2.3vh; font-family: 'IBM Plex Mono', monospace; letter-spacing: 3px;"
+          placeholder="PASSWORD*" [(ngModel)]="password" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <div class="loginerror" *ngIf="isError">
+    {{message}}
+    </div>
+    <ion-col col-12>
+      <div class="btndv">
+        <button ion-button class="btndvsp" (click)="login()" >LOGIN</button>
+      </div>
+    </ion-col>
+    <ion-row class="socialLogin" align-items-center>
+    <ion-col col-12>
+      <div class="lognu">
+       Forgot password?
+     </div>
+    </ion-col>
+    <ion-col col-12>
+
+       <ion-col col-12>
+      <div class="btndvf">
+        <button ion-button class="btnlgnb" (click)="login()">
+          <img class="imgcls" src="assets/imgs/fb.png" alt="">
+
+          Login with Facebook</button>
+      </div>
+    </ion-col>
+    </ion-col>
+    <ion-col col-12>
+      <div class="btndv">
+        <button ion-button class="btnlgn" (click)="login()" >
+           <img class="imgcls" src="assets/imgs/gp.png" alt="">
+          Sign in With Google+</button>
+      </div>
+    </ion-col>
+    <ion-col col-12>
+      <div class="btndv" (click)="signup()" style="color: #bb8b00;">
+          New user? click here
+      </div>
+    </ion-col>
+    </ion-row>
+  </ion-content>

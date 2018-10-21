@@ -1,0 +1,40 @@
+
+<ion-header no-border>
+  <ion-row align-items-center style="padding-top: 2vh;">
+    <ion-col col-2 class="backarrow" (click)="goback()" >
+      <img class="imgclshd" src="assets/imgs/ba.jpg" alt="">
+    </ion-col>
+    <ion-col col-10 class="loghead">
+      OTP
+    </ion-col>
+  </ion-row>
+
+
+</ion-header>
+
+<ion-content padding >
+
+  <ion-row class="socialLogin" align-items-center>
+    <ion-col col-12 class="salpara">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan lorem in urna bibendum dignissim.
+    </ion-col>
+  </ion-row>
+    <ion-row name="email-login" align-items-center style="margin-bottom: 3vh; margin-top: 12vh;">
+      <ion-col col-10 >
+        <ion-item no-lines >
+          <ion-input  type="email" class="font-placeholder" style="padding-left: 5vw;font-size: 2.3vh; font-family: 'IBM Plex Mono', monospace;"
+          placeholder="Enter Otp*" (ionFocus)="clearErrorMsg()" [(ngModel)]="otp" ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <div class="loginerror" *ngIf="isError">
+      {{message}}
+    </div>
+    <ion-col col-12>
+      <div class="btndv">
+        <button ion-button class="btndvsp" (click)="verifyOtp()" >Verify</button>
+      </div>
+    </ion-col>
+
+  </ion-content>
